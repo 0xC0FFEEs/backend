@@ -4,6 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from orjson import loads, dumps
 
 from typing import Annotated
+from os.path import isdir
+from pathlib import Path
 app = FastAPI()
 
 app.add_middleware(
@@ -13,6 +15,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+if not isdir("data.json"):
+    p = Path("data.json")
+    p.touch()
+    p.write_text("[[],[],[],[],[],[],[],[],[],[],[],[],[]]")
 
 with open('data.json', 'rb') as f:
     data_cont: list[dict] = loads(f.read())
