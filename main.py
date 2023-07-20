@@ -1,11 +1,20 @@
 from fastapi import FastAPI, Header, status, HTTPException
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from orjson import loads, dumps
 
 from typing import Annotated
 from pathlib import Path
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 with open('data.json', 'rb') as f:
     data_cont: list[dict] = loads(f.read())
