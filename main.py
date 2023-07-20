@@ -4,8 +4,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from orjson import loads, dumps
 
 from typing import Annotated
-from pathlib import Path
-
 app = FastAPI()
 
 app.add_middleware(
@@ -28,7 +26,8 @@ def post_data(
     if data is None:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST)
     data_cont[month-1].append({"type": typeofcof, "data": data})
-    Path("data.json").write_text(dumps(data_cont))
+    with open('data.json', 'wb') as f:
+        f.write(dumps(data_cont))
 
 @app.get("/data/{month}")
 def get_data(month: int):
