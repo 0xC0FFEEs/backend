@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from orjson import loads, dumps
 
 from typing import Annotated
-from os.path import isdir
+from os.path import isfile
 from pathlib import Path
 app = FastAPI()
 
@@ -16,7 +16,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-if not isdir("data.json"):
+if not isfile("data.json"):
     p = Path("data.json")
     p.touch()
     p.write_text("[[],[],[],[],[],[],[],[],[],[],[],[],[]]")
