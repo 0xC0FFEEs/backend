@@ -35,4 +35,4 @@ def get_data(month: int):
 
 @app.get("/data/{month}/{typeofcof}")
 def get_data_by_type(month: int, typeofcof: str):
-    return JSONResponse([item for item in data_cont[month-1] if item["type"] == typeofcof], headers={"Access-Control-Allow-Origin": "*"})
+    return JSONResponse(sum(item["data"] for item in data_cont[month-1] if item["type"] == typeofcof), headers={"Access-Control-Allow-Origin": "*"})
