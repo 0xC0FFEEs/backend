@@ -1,0 +1,31 @@
+[
+    [
+        {"type": "coffee", "data": 100}
+    ],[
+        {"type": "coffee", "data": 100}
+    ],[
+        {"type": "coffee", "data": 200}
+    ],[
+        {"type": "coffee", "data": 100}
+    ],[
+        {"type": "coffee", "data": 50}
+    ],[
+        {"type": "coffee", "data": 100}
+    ],[
+        {"type": "coffee", "data": 200}
+    ],[
+        {"type": "coffee", "data": 300}
+    ],[
+        {"type": "coffee", "data": 100}
+    ],[
+        {"type": "coffee", "data": 200}
+    ],[
+        {"type": "coffee", "data": 100}
+    ],[
+        {"type": "coffee", "data": 200}
+    ],[
+        {"type": "coffee", "data": 200}
+    ],[
+        {"type": "coffee", "data": 200}
+    ]
+]
